@@ -8,7 +8,7 @@ description   'UNKNOWN'
 project_page  'UNKNOWN'
 
 dependency 'puppetlabs/stdlib', '>= 4.1.0'
-dependency 'puppetlabs/java', '>= 1.1.0'
+dependency 'puppetlabs/java', '>= 1.0.1'
 dependency 'puppetlabs/mongodb', '>= 0.7.0'
 dependency 'elasticsearch/elasticsearch', '>= 0.2.4'
 
