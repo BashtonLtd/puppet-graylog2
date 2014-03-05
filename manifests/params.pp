@@ -13,7 +13,7 @@ class graylog2::params {
       $server_plugin_dir   = '/opt/graylog2-server/plugin'
       $web_package_name    = 'graylog2-web-interface'
       $web_service_name    = 'graylog2-web-interface'
-      $web_config_file     = '/opt/graylog2-web-interface/conf/graylog2-web-interface.conf'
+      $web_config_file     = '/etc/graylog2/web-interface/graylog2-web-interface.conf'
     }
     default: {
       fail("${::operatingsystem} not supported")
