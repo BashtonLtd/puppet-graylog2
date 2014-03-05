@@ -1,0 +1,8 @@
+fixtures:
+  repositories:
+    stdlib: "git://github.com/puppetlabs/puppetlabs-stdlib.git"
+    java: "https://github.com/puppetlabs/puppetlabs-java.git"
+    mongodb: "https://github.com/puppetlabs/puppetlabs-mongodb.git"
+    elasticsearch: "https://github.com/elasticsearch/puppet-elasticsearch.git"
+  symlinks:
+    graylog2: "#{source_dir}"
