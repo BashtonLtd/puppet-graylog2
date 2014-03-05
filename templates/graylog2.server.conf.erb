@@ -52,7 +52,7 @@ elasticsearch_index_prefix = <%= scope.lookupvar('graylog2::server::elasticsearc
 
 # Do you want to allow searches with leading wildcards? This can be extremely resource hungry and should only
 # be enabled with care. See also: http://support.torch.sh/help/kb/graylog2-web-interface/the-search-bar-explained
-allow_leading_wildcard_searches = <%= scope.lookupvar('graylog2::server::false') %>
+allow_leading_wildcard_searches = <%= scope.lookupvar('graylog2::server::allow_leading_wildcard_searches') %>
 
 # settings to be passed to elasticsearch's client (overriding those in the provided elasticsearch_config_file)
 # all these
