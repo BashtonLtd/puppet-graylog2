@@ -6,6 +6,7 @@
 class graylog2::params {
   case $::osfamily {
     'RedHat', 'Amazon': {
+      $es_repo_version     = '0.90'
       $server_package_name = 'graylog2-server'
       $server_service_name = 'graylog2-server'
       $server_config_file  = '/etc/graylog2/graylog2.conf'
