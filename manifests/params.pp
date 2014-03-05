@@ -9,7 +9,7 @@ class graylog2::params {
       $es_repo_version     = '0.90'
       $server_package_name = 'graylog2-server'
       $server_service_name = 'graylog2-server'
-      $server_config_file  = '/etc/graylog2/graylog2.conf'
+      $server_config_file  = '/etc/graylog2/server/graylog2.conf'
       $web_package_name    = 'graylog2-web-interface'
       $web_service_name    = 'graylog2-web-interface'
       $web_config_file     = '/opt/graylog2-web-interface/conf/graylog2-web-interface.conf'
