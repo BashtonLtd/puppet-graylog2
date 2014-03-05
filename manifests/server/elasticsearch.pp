@@ -3,7 +3,7 @@ class graylog2::server::elasticsearch {
 
   if ($graylog2::server::manage_elasticsearch) {
     class { '::elasticsearch':
-      manage_repo => 'true',
+      manage_repo => true,
       config    => {
         cluster => {
           name  => 'graylog2'
