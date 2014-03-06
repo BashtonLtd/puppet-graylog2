@@ -11,7 +11,11 @@ class graylog2::web (
   $config_file = $::graylog2::params::web_config_file,
   $server_uris = 'http://127.0.0.1:12900/',
   $secret = undef,
-  $timezone = undef
+  $timezone = undef,
+  $java_min_mem = '128m',
+  $java_max_mem = '1024m',
+  $java_max_perm_size = '1024m',
+
 ) inherits graylog2::params {
 
   validate_string($secret)

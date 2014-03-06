@@ -6,14 +6,16 @@
 class graylog2::params {
   case $::osfamily {
     'RedHat', 'Amazon': {
-      $es_repo_version     = '0.90'
-      $server_package_name = 'graylog2-server'
-      $server_service_name = 'graylog2-server'
-      $server_config_file  = '/etc/graylog2/server/graylog2.conf'
-      $server_plugin_dir   = '/opt/graylog2-server/plugin'
-      $web_package_name    = 'graylog2-web-interface'
-      $web_service_name    = 'graylog2-web-interface'
-      $web_config_file     = '/etc/graylog2/web-interface/graylog2-web-interface.conf'
+      $es_repo_version       = '0.90'
+      $server_package_name   = 'graylog2-server'
+      $server_service_name   = 'graylog2-server'
+      $server_config_file    = '/etc/graylog2/server/graylog2.conf'
+      $server_sysconfig_file = '/etc/sysconfig/graylog2-server'
+      $server_plugin_dir     = '/opt/graylog2-server/plugin'
+      $web_package_name      = 'graylog2-web-interface'
+      $web_service_name      = 'graylog2-web-interface'
+      $web_config_file       = '/etc/graylog2/web-interface/graylog2-web-interface.conf'
+      $web_sysconfig_file    = '/etc/sysconfig/graylog2-web-interface'
     }
     default: {
       fail("${::operatingsystem} not supported")

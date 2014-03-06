@@ -11,4 +11,12 @@ class graylog2::server::config {
     mode    => '0600',
     content => template('graylog2/graylog2.server.conf.erb'),
   }
+
+  file { $graylog2::params::server_sysconfig_file:
+    ensure  => present,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0600',
+    content => template('graylog2/graylog2-server.sysconfig.erb'),
+  }
 }
