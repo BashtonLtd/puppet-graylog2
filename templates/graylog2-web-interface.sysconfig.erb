@@ -1,8 +1,14 @@
-GRAYLOG2CTL_DIR=/opt/graylog2-server
-GRAYLOG2_SERVER_JAR=${GRAYLOG2CTL_DIR}/graylog2-server.jar
-GRAYLOG2_PID=/var/run/graylog2/server.pid
-GRAYLOG2_CONF=<%= scope.lookupvar('graylog2::server::server_config_file') %>
+GRAYLOG2CTL_DIR=/opt/graylog2-web-interface
+GRAYLOG2_PID=/var/run/graylog2/web-interface.pid
 #JAVA_CMD=/usr/bin/java
 
-ADDITIONAL_JAVA_OPTS="-Dlog4j.configuration=file:///etc/graylog2/server/log4j.xml"
+lib_dir=${GRAYLOG2CTL_DIR}/lib
+CLASSPATH="${lib_dir}/*"
+
+MIN_MEM=<%= scope.lookupvar('graylog2::web::java_min_mem') %>
+MAX_MEM=<%= scope.lookupvar('graylog2::web::java_max_mem') %>
+MAX_PERM_SIZE=<%= scope.lookupvar('graylog2::web::java_max_perm_size') %>
+
+ADDITIONAL_JAVA_OPTS="-Dlogger.file=/etc/graylog2/web-interface/log4j.xml \
+                      -Dconfig.file=<%= scope.lookupvar('graylog2::web::web_config_file') %>"
 
