@@ -21,5 +21,5 @@ class { 'graylog2::server':
   root_password_sha2 => 'ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f',
 }
 
-class { 'graylog2::client': }
+class { 'graylog2::web': }
 ```
