@@ -16,7 +16,7 @@ application.secret="<%= scope.lookupvar('graylog2::web::secret') %>"
 # If you leave this out, Graylog2 will pick your system default as the timezone. Usually you will want to configure it explicitly.
 # timezone="Europe/Berlin"
 <% if scope.lookupvar('graylog2::web::timezone') -%>
-timezone="<%= scope.lookupvar('graylog2::web::timezone') -%>
+timezone="<%= scope.lookupvar('graylog2::web::timezone') -%>"
 <% end -%>
 
 # Message field limit
