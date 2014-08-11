@@ -12,11 +12,21 @@ class graylog2::server::config {
     content => template('graylog2/graylog2.server.conf.erb'),
   }
 
-  file { $graylog2::params::server_sysconfig_file:
-    ensure  => present,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0600',
-    content => template('graylog2/graylog2-server.sysconfig.erb'),
+  if ($::osfamily == 'RedHat') {
+    file { $graylog2::params::server_sysconfig_file:
+      ensure  => present,
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0600',
+      content => template('graylog2/graylog2-server.sysconfig.erb'),
+    }
+  } elsif ($::osfamily == 'Debian'){
+    file {$graylog2::params::server_sysconfig_file:
+      ensure => present,
+      owner  => 'root',
+      group  => 'root',
+      mode   => '0644',
+      source => 'puppet:///modules/graylog2/graylog2.defaults'
+    }
   }
 }
