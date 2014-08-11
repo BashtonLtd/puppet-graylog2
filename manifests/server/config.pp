@@ -8,7 +8,7 @@ class graylog2::server::config {
     ensure  => present,
     owner   => 'root',
     group   => 'root',
-    mode    => '0600',
+    mode    => '0644',
     content => template('graylog2/graylog2.server.conf.erb'),
   }
 
