@@ -20,7 +20,8 @@ class graylog2::server (
   $elasticsearch_index_prefix = 'graylog2',
   $allow_leading_wildcard_searches = 'false',
   $manage_elasticsearch = true,
-  $manage_mongodb = true
+  $manage_mongodb = true,
+  $mongodb_host = '127.0.0.1'
 ) inherits graylog2::params {
 
   validate_string($password_secret)

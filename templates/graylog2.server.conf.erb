@@ -115,7 +115,7 @@ ring_size = 1024
 mongodb_useauth = false
 #mongodb_user = grayloguser
 #mongodb_password = 123
-mongodb_host = 127.0.0.1
+mongodb_host = <%= scope.lookupvar('graylog2::server::mongodb_host') %>
 #mongodb_replica_set = localhost:27017,localhost:27018,localhost:27019
 mongodb_database = graylog2
 mongodb_port = 27017
