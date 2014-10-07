@@ -18,7 +18,7 @@ class graylog2::server (
   $elasticsearch_shards = '4',
   $elasticsearch_replicas = '0',
   $elasticsearch_index_prefix = 'graylog2',
-  $elasticsearch_zen_ping_multicast_enabled = false,
+  $elasticsearch_zen_ping_multicast_enabled = undef,
   $allow_leading_wildcard_searches = false,
   $manage_elasticsearch = true,
   $manage_mongodb = true,
@@ -28,7 +28,7 @@ class graylog2::server (
   validate_string($password_secret)
   validate_string($root_password_sha2)
 
-  if $elasticsearch_zen_ping_multicast_enabled == true {
+  if $elasticsearch_zen_ping_multicast_enabled == false {
     $disco_zen_ping_hosts = hiera('graylog2::server::elasticsearch_zen_ping_unicast_hosts')
   }
 
