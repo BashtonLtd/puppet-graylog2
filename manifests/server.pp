@@ -8,7 +8,7 @@
 #   Explanation of what this parameter affects and what it defaults to.
 #
 class graylog2::server (
-  $is_master = 'true',
+  $is_master = true,
   $password_secret = undef,
   $root_password_sha2 = undef,
   $rest_listen_api = 'http://127.0.0.1:12900/',
@@ -18,7 +18,8 @@ class graylog2::server (
   $elasticsearch_shards = '4',
   $elasticsearch_replicas = '0',
   $elasticsearch_index_prefix = 'graylog2',
-  $allow_leading_wildcard_searches = 'false',
+  $elasticsearch_zen_ping_multicast_enabled = false,
+  $allow_leading_wildcard_searches = false,
   $manage_elasticsearch = true,
   $manage_mongodb = true,
   $mongodb_host = '127.0.0.1'
@@ -26,6 +27,10 @@ class graylog2::server (
 
   validate_string($password_secret)
   validate_string($root_password_sha2)
+
+  if $elasticsearch_zen_ping_multicast_enabled == true {
+    $disco_zen_ping_hosts = hiera('graylog2::server::elasticsearch_zen_ping_unicast_hosts')
+  }
 
   class { 'graylog2::server::mongodb': } ->
   class { 'graylog2::server::elasticsearch': } ->
